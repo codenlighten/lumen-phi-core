@@ -1,6 +1,10 @@
-# 🌀 Golden Ratio Mirroring: The Connection
+# 🌀 Lumen-Phi Core: The Photonic φ-Processor
 
-This project explores the fascinating geometric property where **two golden spirals**, when mirrored vertically and then horizontally, connect perfectly at a central singularity point, creating a continuous, self-similar field pattern.
+**Author:** Gregory J. Ward  
+**Date:** December 31, 2025  
+**Repository:** https://github.com/codenlighten/lumen-phi-core
+
+This project explores the fascinating geometric property where **two golden spirals**, when mirrored vertically and then horizontally, connect perfectly at a central singularity point, creating a continuous, self-similar field pattern — and extends this discovery into a complete architecture for **resonant photonic computing** based on golden ratio wave mechanics.
 
 ## 🎯 The Discovery
 
