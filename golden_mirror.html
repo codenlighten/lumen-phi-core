@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Ratio Mirroring - The Connection</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .canvas-container {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        canvas {
+            width: 100%;
+            height: 400px;
+            display: block;
+            border-radius: 5px;
+        }
+        .canvas-title {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        .info-panel {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            padding: 25px;
+            color: #333;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .info-panel h2 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        .info-panel ul {
+            line-height: 1.8;
+        }
+        .phi-value {
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .highlight {
+            background: linear-gradient(120deg, #ffd89b 0%, #19547b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌀 Golden Ratio Mirroring 🌀</h1>
+        <div class="subtitle">
+            How Two Golden Spirals Connect Through Symmetry<br>
+            <span class="phi-value">φ = 1.618033988749...</span>
+        </div>
+
+        <div class="controls">
+            <button onclick="animateAll()">🎬 Animate All</button>
+            <button onclick="drawAll()">🔄 Redraw</button>
+        </div>
+
+        <div class="canvas-grid">
+            <div class="canvas-container">
+                <div class="canvas-title">1️⃣ Original Golden Spiral</div>
+                <canvas id="canvas1"></canvas>
+            </div>
+            <div class="canvas-container">
+                <div class="canvas-title">2️⃣ Vertical Mirror → Heart Shape</div>
+                <canvas id="canvas2"></canvas>
+            </div>
+            <div class="canvas-container">
+                <div class="canvas-title">3️⃣ Full 4-Fold Symmetry</div>
+                <canvas id="canvas3"></canvas>
+            </div>
+            <div class="canvas-container">
+                <div class="canvas-title">4️⃣ Zoomed: Connection at Center</div>
+                <canvas id="canvas4"></canvas>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>✨ The Geometry of the Connection</h2>
+            <p>When you perform these specific mirroring operations—vertical reflection followed by horizontal reflection—you create a four-fold symmetry that generates a <strong>continuous flow</strong>.</p>
+            
+            <h3>Why They Connect So Perfectly:</h3>
+            <ul>
+                <li><strong>Self-Similarity:</strong> The Golden Spiral grows by a factor of φ ≈ 1.618 for every quarter turn (90°)</li>
+                <li><strong>Constant Tangent Angle:</strong> The curve maintains approximately 72.97° angle with radial lines</li>
+                <li><strong>Logarithmic Growth:</strong> r(θ) = a × φ^(2θ/π) creates perfect self-similar scaling</li>
+                <li><strong>Infinite Convergence:</strong> All four spirals converge to (0,0) as θ → -∞</li>
+            </ul>
+
+            <h3>🌍 Where You See This Pattern:</h3>
+            <ul>
+                <li><span class="highlight">Nature:</span> Nautilus shells, hurricanes, galaxy spirals, sunflower seeds</li>
+                <li><span class="highlight">Physics:</span> Magnetic field lines, vortex cross-sections, fluid dynamics</li>
+                <li><span class="highlight">Design:</span> Apple logo, Twitter bird, sacred geometry</li>
+                <li><span class="highlight">Biology:</span> DNA double helix, spiral seed heads</li>
+            </ul>
+
+            <h3>📐 Mathematical Properties:</h3>
+            <ul>
+                <li>φ = (1 + √5) / 2 ≈ 1.618033988749895</li>
+                <li>φ² = φ + 1 ≈ 2.618033988749895</li>
+                <li>1/φ = φ - 1 ≈ 0.618033988749895</li>
+                <li>Growth per 360° rotation: φ⁴ ≈ 6.854</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const PHI = (1 + Math.sqrt(5)) / 2;
+        
+        function goldenSpiral(thetaMax = 5 * Math.PI, points = 1000) {
+            const coords = [];
+            const a = 0.1; // Scale factor
+            
+            for (let i = 0; i < points; i++) {
+                const theta = (thetaMax * i) / points;
+                const r = a * Math.pow(PHI, (2 * theta) / Math.PI);
+                const x = r * Math.cos(theta);
+                const y = r * Math.sin(theta);
+                coords.push({x, y, theta, r});
+            }
+            
+            return coords;
+        }
+
+        function drawSpiral(ctx, coords, color = '#2563eb', lineWidth = 2, centerX, centerY, scale) {
+            if (coords.length === 0) return;
+            
+            ctx.strokeStyle = color;
+            ctx.lineWidth = lineWidth;
+            ctx.beginPath();
+            
+            const first = coords[0];
+            ctx.moveTo(centerX + first.x * scale, centerY - first.y * scale);
+            
+            for (let i = 1; i < coords.length; i++) {
+                ctx.lineTo(centerX + coords[i].x * scale, centerY - coords[i].y * scale);
+            }
+            
+            ctx.stroke();
+        }
+
+        function drawCenter(ctx, centerX, centerY, color = '#000', size = 6) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, size, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        function setupCanvas(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            const dpr = window.devicePixelRatio || 1;
+            const rect = canvas.getBoundingClientRect();
+            
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+            
+            return {canvas, ctx, width: rect.width, height: rect.height};
+        }
+
+        function drawCanvas1() {
+            const {ctx, width, height} = setupCanvas('canvas1');
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const scale = 15;
+            
+            // Clear
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Grid
+            ctx.strokeStyle = '#e5e7eb';
+            ctx.lineWidth = 0.5;
+            for (let i = -10; i <= 10; i++) {
+                ctx.beginPath();
+                ctx.moveTo(centerX + i * scale * 2, 0);
+                ctx.lineTo(centerX + i * scale * 2, height);
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(0, centerY + i * scale * 2);
+                ctx.lineTo(width, centerY + i * scale * 2);
+                ctx.stroke();
+            }
+            
+            // Axes
+            ctx.strokeStyle = '#9ca3af';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX, height);
+            ctx.moveTo(0, centerY);
+            ctx.lineTo(width, centerY);
+            ctx.stroke();
+            
+            // Original spiral
+            const spiral = goldenSpiral();
+            drawSpiral(ctx, spiral, '#2563eb', 3, centerX, centerY, scale);
+            
+            // Center point
+            drawCenter(ctx, centerX, centerY, '#dc2626', 8);
+            
+            // Label
+            ctx.fillStyle = '#2563eb';
+            ctx.font = 'bold 14px sans-serif';
+            ctx.fillText('Original Golden Spiral', 10, 25);
+        }
+
+        function drawCanvas2() {
+            const {ctx, width, height} = setupCanvas('canvas2');
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const scale = 15;
+            
+            // Clear
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Grid
+            ctx.strokeStyle = '#e5e7eb';
+            ctx.lineWidth = 0.5;
+            for (let i = -10; i <= 10; i++) {
+                ctx.beginPath();
+                ctx.moveTo(centerX + i * scale * 2, 0);
+                ctx.lineTo(centerX + i * scale * 2, height);
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(0, centerY + i * scale * 2);
+                ctx.lineTo(width, centerY + i * scale * 2);
+                ctx.stroke();
+            }
+            
+            // Axes
+            ctx.strokeStyle = '#9ca3af';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX, height);
+            ctx.moveTo(0, centerY);
+            ctx.lineTo(width, centerY);
+            ctx.stroke();
+            
+            const spiral = goldenSpiral();
+            
+            // Original
+            drawSpiral(ctx, spiral, '#2563eb', 3, centerX, centerY, scale);
+            
+            // Vertical mirror
+            const mirrorV = spiral.map(p => ({...p, y: -p.y}));
+            drawSpiral(ctx, mirrorV, '#dc2626', 3, centerX, centerY, scale);
+            
+            // Center point
+            drawCenter(ctx, centerX, centerY, '#000', 8);
+            
+            // Labels
+            ctx.fillStyle = '#2563eb';
+            ctx.font = 'bold 12px sans-serif';
+            ctx.fillText('Original', 10, 25);
+            ctx.fillStyle = '#dc2626';
+            ctx.fillText('Vertical Mirror', 10, 45);
+            ctx.fillStyle = '#059669';
+            ctx.font = 'italic 14px sans-serif';
+            ctx.fillText('❤ Heart Shape', width - 120, 25);
+        }
+
+        function drawCanvas3() {
+            const {ctx, width, height} = setupCanvas('canvas3');
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const scale = 15;
+            
+            // Clear
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Grid
+            ctx.strokeStyle = '#e5e7eb';
+            ctx.lineWidth = 0.5;
+            for (let i = -10; i <= 10; i++) {
+                ctx.beginPath();
+                ctx.moveTo(centerX + i * scale * 2, 0);
+                ctx.lineTo(centerX + i * scale * 2, height);
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(0, centerY + i * scale * 2);
+                ctx.lineTo(width, centerY + i * scale * 2);
+                ctx.stroke();
+            }
+            
+            // Axes
+            ctx.strokeStyle = '#9ca3af';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX, height);
+            ctx.moveTo(0, centerY);
+            ctx.lineTo(width, centerY);
+            ctx.stroke();
+            
+            const spiral = goldenSpiral();
+            
+            // Q1: Original
+            drawSpiral(ctx, spiral, '#2563eb', 2.5, centerX, centerY, scale);
+            
+            // Q4: Vertical mirror
+            const mirrorV = spiral.map(p => ({...p, y: -p.y}));
+            drawSpiral(ctx, mirrorV, '#dc2626', 2.5, centerX, centerY, scale);
+            
+            // Q2: Horizontal mirror
+            const mirrorH = spiral.map(p => ({...p, x: -p.x}));
+            drawSpiral(ctx, mirrorH, '#059669', 2.5, centerX, centerY, scale);
+            
+            // Q3: Both mirrors
+            const mirrorBoth = spiral.map(p => ({...p, x: -p.x, y: -p.y}));
+            drawSpiral(ctx, mirrorBoth, '#7c3aed', 2.5, centerX, centerY, scale);
+            
+            // Center singularity
+            drawCenter(ctx, centerX, centerY, '#fbbf24', 10);
+            
+            // Labels
+            ctx.font = 'bold 11px sans-serif';
+            ctx.fillStyle = '#2563eb';
+            ctx.fillText('Q1', width - 25, 25);
+            ctx.fillStyle = '#dc2626';
+            ctx.fillText('Q4', width - 25, height - 10);
+            ctx.fillStyle = '#059669';
+            ctx.fillText('Q2', 10, 25);
+            ctx.fillStyle = '#7c3aed';
+            ctx.fillText('Q3', 10, height - 10);
+            
+            // Arrows pointing to center
+            const drawArrow = (x1, y1, x2, y2, color) => {
+                ctx.strokeStyle = color;
+                ctx.fillStyle = color;
+                ctx.lineWidth = 2;
+                
+                // Line
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.stroke();
+                
+                // Arrowhead
+                const angle = Math.atan2(y2 - y1, x2 - x1);
+                const headLen = 8;
+                ctx.beginPath();
+                ctx.moveTo(x2, y2);
+                ctx.lineTo(x2 - headLen * Math.cos(angle - Math.PI / 6), 
+                          y2 - headLen * Math.sin(angle - Math.PI / 6));
+                ctx.lineTo(x2 - headLen * Math.cos(angle + Math.PI / 6), 
+                          y2 - headLen * Math.sin(angle + Math.PI / 6));
+                ctx.closePath();
+                ctx.fill();
+            };
+            
+            ctx.globalAlpha = 0.4;
+            drawArrow(centerX + 50, centerY - 50, centerX + 5, centerY - 5, '#2563eb');
+            drawArrow(centerX + 50, centerY + 50, centerX + 5, centerY + 5, '#dc2626');
+            drawArrow(centerX - 50, centerY - 50, centerX - 5, centerY - 5, '#059669');
+            drawArrow(centerX - 50, centerY + 50, centerX - 5, centerY + 5, '#7c3aed');
+            ctx.globalAlpha = 1;
+        }
+
+        function drawCanvas4() {
+            const {ctx, width, height} = setupCanvas('canvas4');
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const scale = 40; // Zoomed in
+            
+            // Clear
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Fine grid
+            ctx.strokeStyle = '#f3f4f6';
+            ctx.lineWidth = 0.5;
+            for (let i = -20; i <= 20; i++) {
+                ctx.beginPath();
+                ctx.moveTo(centerX + i * scale * 0.5, 0);
+                ctx.lineTo(centerX + i * scale * 0.5, height);
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(0, centerY + i * scale * 0.5);
+                ctx.lineTo(width, centerY + i * scale * 0.5);
+                ctx.stroke();
+            }
+            
+            // Axes
+            ctx.strokeStyle = '#9ca3af';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX, height);
+            ctx.moveTo(0, centerY);
+            ctx.lineTo(width, centerY);
+            ctx.stroke();
+            
+            const spiral = goldenSpiral(5 * Math.PI, 1500);
+            
+            // All four spirals
+            drawSpiral(ctx, spiral, '#2563eb', 3, centerX, centerY, scale);
+            drawSpiral(ctx, spiral.map(p => ({...p, y: -p.y})), '#dc2626', 3, centerX, centerY, scale);
+            drawSpiral(ctx, spiral.map(p => ({...p, x: -p.x})), '#059669', 3, centerX, centerY, scale);
+            drawSpiral(ctx, spiral.map(p => ({...p, x: -p.x, y: -p.y})), '#7c3aed', 3, centerX, centerY, scale);
+            
+            // Center point with glow
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = '#fbbf24';
+            drawCenter(ctx, centerX, centerY, '#fbbf24', 12);
+            ctx.shadowBlur = 0;
+            
+            // Info text
+            ctx.fillStyle = '#1f2937';
+            ctx.font = 'bold 16px sans-serif';
+            ctx.fillText('Singularity at (0, 0)', centerX + 20, centerY - 20);
+            
+            ctx.font = 'italic 12px sans-serif';
+            ctx.fillStyle = '#6b7280';
+            ctx.fillText('All spirals converge infinitely', centerX - 90, centerY + 35);
+            ctx.fillText('Perfect tangent continuity', centerX - 90, centerY + 50);
+        }
+
+        function drawAll() {
+            drawCanvas1();
+            drawCanvas2();
+            drawCanvas3();
+            drawCanvas4();
+        }
+
+        function animateSpiral(ctx, spiral, color, centerX, centerY, scale, progress) {
+            const numPoints = Math.floor(spiral.length * progress);
+            const coords = spiral.slice(0, numPoints);
+            drawSpiral(ctx, coords, color, 2.5, centerX, centerY, scale);
+        }
+
+        function animateAll() {
+            let progress = 0;
+            const duration = 3000; // 3 seconds
+            const startTime = Date.now();
+            
+            function animate() {
+                const elapsed = Date.now() - startTime;
+                progress = Math.min(elapsed / duration, 1);
+                
+                // Redraw all canvases with animation
+                const spiral = goldenSpiral();
+                
+                // Canvas 3 animation (most interesting)
+                const {ctx, width, height} = setupCanvas('canvas3');
+                const centerX = width / 2;
+                const centerY = height / 2;
+                const scale = 15;
+                
+                ctx.fillStyle = '#fff';
+                ctx.fillRect(0, 0, width, height);
+                
+                // Grid
+                ctx.strokeStyle = '#e5e7eb';
+                ctx.lineWidth = 0.5;
+                for (let i = -10; i <= 10; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(centerX + i * scale * 2, 0);
+                    ctx.lineTo(centerX + i * scale * 2, height);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(0, centerY + i * scale * 2);
+                    ctx.lineTo(width, centerY + i * scale * 2);
+                    ctx.stroke();
+                }
+                
+                // Axes
+                ctx.strokeStyle = '#9ca3af';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(centerX, 0);
+                ctx.lineTo(centerX, height);
+                ctx.moveTo(0, centerY);
+                ctx.lineTo(width, centerY);
+                ctx.stroke();
+                
+                // Animated spirals
+                animateSpiral(ctx, spiral, '#2563eb', centerX, centerY, scale, progress);
+                animateSpiral(ctx, spiral.map(p => ({...p, y: -p.y})), '#dc2626', centerX, centerY, scale, progress);
+                animateSpiral(ctx, spiral.map(p => ({...p, x: -p.x})), '#059669', centerX, centerY, scale, progress);
+                animateSpiral(ctx, spiral.map(p => ({...p, x: -p.x, y: -p.y})), '#7c3aed', centerX, centerY, scale, progress);
+                
+                drawCenter(ctx, centerX, centerY, '#fbbf24', 10);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    drawAll(); // Redraw all when done
+                }
+            }
+            
+            animate();
+        }
+
+        // Initial draw
+        window.addEventListener('load', drawAll);
+        window.addEventListener('resize', drawAll);
+    </script>
+</body>
+</html>
